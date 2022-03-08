@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ESP8266 WebSocket</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Syne+Mono&display=swap" rel="stylesheet"> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://your-site-or-cdn.com/fontawesome/v5.15.4/js/all.js" data-auto-a11y="true" ></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />	
+</head>
+	<body>
+		<div class="container text-center" style="font-family: 'League Spartan', sans-serif;font-size: 50px;"> Websocket ESP8266 status 
+			<span id="status" style="font-weight: bold;"> disconnected </span>
+		</div>
+		<div class="container text-center" style="font-family: 'Syne Mono',sans-serif; font-size: 30px;"> Test Scripts 
+			<!-- <input type="checkbox" id="btn" name="btn" /> -->
+	    </div> 
+		<!-- <div class="form-check">  
+			<input type="checkbox" id="led" name="led" disabled="true" />
+            <label class="form-check-label">Control Script 1</label>
+        </div> -->
+        <!-- <div class="form-check"> 
+			<input type="checkbox" id="script" name="script" disabled="true" />
+            <label class="form-check-label">Control Script 2 </label>
+        </div> -->
+        <!-- <div class="form-check"> 
+			<input type="checkbox" id="alarmscript" name="alarmscript" disabled="true" />
+            <label class="form-check-label">Control Script 3</label>
+        </div>
+        <div class="form-check"> 
+			<input type="checkbox" id="nothingscript" name="nothingscript" disabled="true" />
+            <label class="form-check-label">Control Script 4</label>
+        </div> -->
+        <div class="container">
+            <div class="row">
+            <div class="card" style="width: 18rem; margin: 10px;">
+                <img style= "width: 230px; margin-left: auto; margin-right: auto;"src="https://www.thespruce.com/thmb/wObMSRbkzOZYOj_1DGaBp0U9Wg8=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/living-room-dos-and-donts-2213467-hero-da82a4643bc84d669a0a34f64e60beb1.jpg" class="card-img-top" alt="...">
+                <div class="card-body mx-auto">
+                    <div class="form-check">  
+                        <input type="checkbox" id="led" name="led" disabled="true" />
+                        <label class="form-check-label">Control Script 1</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: 10px">
+                <img style= "width: 260px; margin-left: auto; margin-right: auto;"src="https://aws1.discourse-cdn.com/pocketgems/uploads/episodeinteractive/optimized/4X/2/5/2/2523c0ea021942b351249b7065239ecbece54409_2_690x408.jpeg" class="card-img-top" alt="...">
+                <div class="card-body mx-auto">
+                    <div class="form-check">  
+                        <input type="checkbox" id="script" name="script" disabled="true" />
+                        <label class="form-check-label">Control Script 2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: 10px">
+                <img style= "width: 270px; margin-left: auto; margin-right: auto;" src="https://dmn-dallas-news-prod.cdn.arcpublishing.com/resizer/vfqK8R3kPCFHNIosl7XUhurMqJY=/1660x934/smart/filters:no_upscale()/arc-anglerfish-arc2-prod-dmn.s3.amazonaws.com/public/5TOELMAB4SHK67OH5IWYXQ3II4.jpg" class="card-img-top" alt="...">
+                <div class="card-body mx-auto">
+                    <div class="form-check">  
+                        <input type="checkbox" id="alarmscript" name="alarmscript" disabled="true" />
+                        <label class="form-check-label">Control Script 3</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin: 10px;">
+                <img style= "width: 230px; margin-left: auto; margin-right: auto;"src="https://img.freepik.com/free-vector/young-family-couple-sitting-sofa-watching-tv-movie-living-room-home-leisure-spare-time-people-resting-spending-time-together-cartoon-flat-illustration_213110-159.jpg?w=900" class="card-img-top" alt="...">
+                <div class="card-body mx-auto">
+                    <div class="form-check">  
+                        <input type="checkbox" id="nothingscript" name="nothingscript" disabled="true" />
+                        <label class="form-check-label">Control Script 4</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center" style="font-family: 'Syne Mono',sans-serif; font-size: 30px;"> ESP8266 Read Sensors Status</div>
+    <div class = "container text-center">
+        <div class="rơw">
+            <div class="alert alert-warning" " style="font-family: 'Syne Mono',sans-serif; font-size: 20px;">
+                Temperature <span id="temp"></span> <i class="fa-solid fa-temperature-quarter"></i>
+            </div>
+            <div class="alert alert-info " style="font-family: 'Syne Mono',sans-serif; font-size: 20px;">
+                Humid <span id="humid"></span> <i class="fas fa-tint"></i>
+            </div>
+            <div class="alert alert-danger" style="font-family: 'Syne Mono',sans-serif; font-size: 20px;">
+                Gas Threshold <span id="gas"></span> <i class="fas fa-burn"></i>
+            </div>      
+        </div>
+    </div>
+		<script type="text/javascript">
+            var button = document.getElementById('btn');
+            var led = document.getElementById('led');
+            var script = document.getElementById('script');
+            var alarmscript = document.getElementById('alarmscript');
+            var nothingscript = document.getElementById('nothingscript');
+            
+            var url = window.location.host; // hàm trả về url của trang hiện tại kèm theo port
+            var ws = new WebSocket('ws://' + url + '/ws'); // mở 1 websocket với port 8000
+            console.log('connecting...')
+            ws.onopen = function() //khi websocket được mở thì hàm này sẽ được thưc hiện
+            {
+                document.getElementById('status').innerHTML = 'Connected';
+                led.disabled = false; //khi websocket được mở, mới cho phép
+                script.disabled = false;
+                alarmscript.disabled = false;
+                nothingscript.disabled = false;
+                console.log('connected...');
+                
+            };
+            ws.onmessage = function(evt) // sự kiện xảy ra khi client nhận dữ liệu từ server
+            {
+                console.log(evt.data)
+                if (evt.data == 'BTN_PRESSED') {
+                    button.checked = true;
+                } else if (evt.data == 'BTN_RELEASE') {
+                    button.checked = false;
+                } else if (evt.data == 'SAon') {
+                    led.checked = false;
+                } else if (evt.data == 'SAon') {
+                    led.checked = true;
+                } else if (evt.data == 'SBoff') {
+                    script.checked = false;
+                } else if (evt.data == 'SBon') {
+                    script.checked = true;
+                } else if (evt.data == 'SCoff') {
+                    alarmscript.checked == false;
+                } else if (evt.data == 'SCon') {
+                    alarmscript.checked == true;
+                } else if (evt.data == 'SDoff') {
+                    nothingscript.checked = false;
+                } else if (evt.data == 'SDon') {
+                    nothingscript.checked = true;
+                } 
+            };
+            ws.onmessage = function(event){
+                var obj = JSON.parse(event.data);
+
+                var humid = obj.data;
+                var temp = obj.data;
+                var gas = obj.data;
+                document.getElementById("humid").innerHTML = obj.humidity;
+                document.getElementById("temp").innerHTML = obj.temperature;
+                document.getElementById("gas").innerHTML = obj.gas;
+                if (obj.gas > 650){
+                    ws.send('SAon');
+                }
+            }
+            ws.onclose = function() { // hàm này sẽ được thực hiện khi đóng websocket
+                led.disabled = true;
+                document.getElementById('status').innerHTML = 'Connected';
+                
+            };
+            led.onchange = function() { // thực hiện thay đổi bật/tắt led
+                // var led_status = 'Script1off';
+                if (led.checked) {
+                    led_status = 'SAon';
+                }
+                ws.send(led_status)
+            }
+            script.onchange = function(){
+                // var script_status = 'Script2off';
+                if (script.checked) {
+                    script_status = 'SBon';
+                }
+                ws.send(script_status)
+            }
+            alarmscript.onchange = function(){
+                // var alarmscript_status = 'Script3off';
+                if (alarmscript.checked) {
+                    alarmscript_status = 'SCon';
+                }
+                ws.send(alarmscript_status)
+            }
+            nothingscript.onchange = function(){
+                // var nothingscript_status = 'Script4off';
+                if (nothingscript.checked) {
+                    nothing_status = 'SDon';
+                }
+                ws.send(nothing_status)
+            }
+            </script>
+	</body>
+</html>
